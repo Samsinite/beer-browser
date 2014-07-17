@@ -1,0 +1,29 @@
+<h3 class="title">Beers</h3>
+<ul>
+	{{#each itemController="beer"}}
+		<li class="beer" {{action 'selectBrewery' this}}>
+			<div class="beer-side-panel">
+				<div class="icon-container">
+					{{#if mediumLabelUrl}}
+						<span class="helper"></span><img alt="brewery avatar image" class="medium" {{bind-attr src=mediumLabelUrl}} />
+					{{else}}
+						<span class="icon ion-beer"></span>
+					{{/if}}
+				</div>
+			</div>
+			<div class="beer-main-panel">
+				<h3>{{name}}</h3>
+				<p class="style">{{style}}</p>
+				<p class="description">
+				{{#if description}}
+					{{description}}
+				{{else}}
+					No description provided.
+				{{/if}}
+			</p>
+			</div>
+		</li>
+	{{else}}
+		<li>Apparently this brewery does not make any beer.</li>
+	{{/each}}
+</ul>

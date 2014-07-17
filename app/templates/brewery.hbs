@@ -1,0 +1,14 @@
+<div class="brewery-header">
+	<h2 class="title">{{name}}</h2>
+	{{!--
+		The handlebars comment below removes the whitespace which
+		adds 4px for inline-block elements and messes up our width %.
+	 --}}
+	<div class="segmented-menu-brewery">
+		{{#link-to "brewery.index" this activeClass="selected"}}Details{{/link-to}}{{!--
+		--}}{{#link-to "brewery.beers" this activeClass="selected"}}Beers{{/link-to}}
+	</div>
+</div>
+<div class="brewery-main">
+	{{outlet}}
+</div>

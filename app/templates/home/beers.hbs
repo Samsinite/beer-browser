@@ -1,0 +1,34 @@
+<div class="search-form-beer">
+	{{input type="text" name="search" placeholder=searchPlaceholder value=searchInput}}
+</div>
+<ul class="beers">
+	{{#if loading}}
+		<li class="spinner">{{spin-js}}</li>
+	{{/if}}
+	{{#each itemController="beer"}}
+		<li class="item-beer" {{action 'selectBeer' this}}>
+			<div class="beer-side-panel">
+				<div class="icon-container">
+					{{#if mediumLabelUrl}}
+						<span class="helper"></span><img alt="brewery avatar image" class="medium" {{bind-attr src=mediumLabelUrl}} />
+					{{else}}
+						<span class="icon ion-beer"></span>
+					{{/if}}
+				</div>
+			</div>
+			<div class="beer-main-panel">
+				<h4>{{name}}</h4>
+				<p class="style">{{style}}</p>
+				<p class="description">
+					{{#if description}}
+						{{description}}
+					{{else}}
+						No description provided.
+					{{/if}}
+				</p>
+			</div>
+		</li>
+	{{else}}
+		<li>No beers have been found, please refine/expand your search.</li>
+	{{/each}}
+</ul>

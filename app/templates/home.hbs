@@ -1,0 +1,11 @@
+<div class="segmented-search">
+	{{!--
+		The handlebars comment below removes the whitespace which
+		adds 4px for inline-block elements and messes up our width %.
+	 --}}
+	{{#link-to "home.breweries" activeClass="selected"}}Breweries{{/link-to}}{{!--
+	--}}{{#link-to "home.beers" activeClass="selected"}}Beers{{/link-to}}
+</div>
+<div class="search-main">
+	{{outlet}}
+</div>

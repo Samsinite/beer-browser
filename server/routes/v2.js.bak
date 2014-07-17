@@ -1,0 +1,13 @@
+var httpProxy = require('http-proxy');
+var apiProxy = httpProxy.createProxyServer({
+	target: 'http://api.brewerydb.com',
+	headers: {
+		host: 'http://api.brewerydb.com'
+	}
+});
+
+module.exports = function(app) {
+	app.get('/v2/*', function(req, res) {
+		apiProxy.web(req, res);
+	});
+};

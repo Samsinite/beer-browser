@@ -1,0 +1,13 @@
+<div class="beer">
+	<h2 class="title">{{name}}</h2>
+	{{#if mediumLabelUrl}}
+		<img alt="beer avatar image" class="medium" {{bind-attr src=mediumLabelUrl}} />
+	{{else}}
+		<span class="icon ion-beer"></span>
+	{{/if}}
+	{{#if description}}
+		<p>{{description}}</p>
+	{{else}}
+		<p>No description provided.</p>
+	{{/if}}
+</div>

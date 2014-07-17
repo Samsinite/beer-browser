@@ -1,0 +1,37 @@
+<div class="search-form-brewery">
+	{{view Ember.Select viewName="type"
+	                    content=searchTypes
+	                    prompt="Select type"
+	                    selection=searchType}}{{!--
+	--}}{{input type="text" name="search" placeholder=searchPlaceholder value=searchInput}}
+</div>
+<ul class="breweries">
+	{{#if loading}}
+		<li class="spinner">{{spin-js}}</li>
+	{{/if}}
+	{{#each itemController="location"}}
+		<li {{action 'selectBrewery' brewery}} class="item-brewery">
+			<div class="brewery-side-panel">
+				<div class="icon-container">
+					{{#if brewery.imageMedium}}
+						<span class="helper"></span><img alt="brewery avatar image" class="medium" {{bind-attr src=brewery.imageMedium}} />
+					{{else}}
+						<span class="icon ion-beaker"></span>
+					{{/if}}
+				</div>
+			</div>{{!--
+			--}}<div class="brewery-main-panel">
+				<h4>{{brewery.name}}</h4>
+				<p>
+					{{#if brewery.description}}
+						{{brewery.description}}
+					{{else}}
+						No description provided.
+					{{/if}}
+				</p>
+			</div>
+		</li>
+	{{else}}
+		<li>No breweries have been found, please refine/expand your search.</li>
+	{{/each}}
+</ul>
